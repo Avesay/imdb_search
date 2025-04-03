@@ -1,5 +1,6 @@
 import json
 
+
 class Movie:
     def __init__(self, title, url, year, age, duration, rating, poster, plot, directors, writers, actors, actors_ref):
         self.url = url
@@ -21,7 +22,7 @@ class Movie:
             self.actors.append({'name': actors[i], 'href': actors_ref[i].split('www.imdb.com')[-1]})
 
     def serialize(self, filename, path):
-        with path(filename).open("a") as f:
+        with path(filename).open('a', encoding='utf-8') as f:
             json.dump(self.__dict__, f, ensure_ascii=False)
             f.write("\n")
 
